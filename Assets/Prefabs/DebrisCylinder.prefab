@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4001289718731796}
   - component: {fileID: 33677388650244210}
-  - component: {fileID: 136984375226932068}
   - component: {fileID: 23116059940752416}
+  - component: {fileID: 136984375226932068}
   - component: {fileID: 54576701262131762}
+  - component: {fileID: 114974239402936140}
   m_Layer: 0
   m_Name: DebrisCylinder
   m_TagString: Untagged
@@ -97,6 +98,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114974239402936140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1329500531445428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdbfdc609e82bb4baccee54cb4ec325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1950436333262542, guid: 28e7fc99993cc1144bdd7c0b04c4d1c7, type: 2}
 --- !u!136 &136984375226932068
 CapsuleCollider:
   m_ObjectHideFlags: 1

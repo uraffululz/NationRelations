@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4614136051110586}
   - component: {fileID: 33078254232752628}
-  - component: {fileID: 65439434592712222}
   - component: {fileID: 23966273281228858}
+  - component: {fileID: 65439434592712222}
   - component: {fileID: 54223068296221740}
+  - component: {fileID: 114486996341838816}
   m_Layer: 0
   m_Name: DebrisCube
   m_TagString: Untagged
@@ -109,3 +110,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114486996341838816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1115674228490710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdbfdc609e82bb4baccee54cb4ec325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1950436333262542, guid: 28e7fc99993cc1144bdd7c0b04c4d1c7, type: 2}
