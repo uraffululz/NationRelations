@@ -556,6 +556,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114206010151269860, guid: 96fa7f95f1a727f4a8fc3623e90c3d73,
+        type: 2}
+      propertyPath: lvlManager
+      value: 
+      objectReference: {fileID: 2142254459}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96fa7f95f1a727f4a8fc3623e90c3d73, type: 2}
   m_IsPrefabParent: 0
@@ -1111,8 +1116,13 @@ MonoBehaviour:
   - {fileID: 1191893983491888, guid: e5a20efa818898044abdf0dcdc620104, type: 2}
   - {fileID: 1329500531445428, guid: 80de1da0bc9a7964cab3fc7e42f3d8ca, type: 2}
   debris: {fileID: 0}
-  timerStart: 0
-  timer: 0
+  debTimeStart: 0
+  debTimer: 0
+  fundFabs:
+  - {fileID: 1691773092235418, guid: b710c762aa51ca74ca5d106851af91eb, type: 2}
+  funding: {fileID: 0}
+  fundTimeStart: 0
+  fundTimer: 0
 --- !u!1 &1348757322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,3 +1870,9 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &2142254459 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114004515299835318, guid: 99cf9141333ea2f419f565106fcba3af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1058127383}
+  m_Script: {fileID: 11500000, guid: 74da2acfb1a02d845a9d975c78d336a4, type: 3}
