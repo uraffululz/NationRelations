@@ -20,7 +20,7 @@ public class Shield : MonoBehaviour {
 			shieldPos = shieldPos + (Vector3.right * moveSpeed * Time.deltaTime);
 		}
 
-		shieldPos.x = Mathf.Clamp (shieldPos.x, 2.0f, 14.0f);
+		shieldPos.x = Mathf.Clamp (shieldPos.x, -6.0f, 6.0f);
 		this.transform.position = shieldPos;
 	}
 }

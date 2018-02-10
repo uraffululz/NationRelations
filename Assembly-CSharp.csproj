@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Debris.cs" />
      <Compile Include="Assets\Scripts\DebrisEmission.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />
+     <Compile Include="Assets\Scripts\Nations.cs" />
      <Compile Include="Assets\Scripts\Shield.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

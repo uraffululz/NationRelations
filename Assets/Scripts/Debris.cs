@@ -6,6 +6,14 @@ public class Debris : MonoBehaviour {
 
 	public GameObject explosion;
 
+	public Color[] debColors = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
+
+
+	void Awake () {
+		ApplyColor ();
+	}
+
+
 	void Start () {
 		
 	}
@@ -23,5 +31,11 @@ public class Debris : MonoBehaviour {
 
 		explosion = Instantiate (explosion, transform.position, Quaternion.identity);
 		Destroy (gameObject);
+	}
+
+
+	void ApplyColor () {
+		Color myColor = debColors [Random.Range (0, debColors.Length)];
+		gameObject.GetComponent<MeshRenderer> ().material.color = myColor;
 	}
 }

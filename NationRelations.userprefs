@@ -1,10 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Debris.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DebrisEmission.cs">
     <Files>
-      <File FileName="Assets\Scripts\DebrisEmission.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Shield.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Debris.cs" Line="23" Column="3" />
+      <File FileName="Assets\Scripts\DebrisEmission.cs" Line="39" Column="5" />
+      <File FileName="Assets\Scripts\Shield.cs" Line="23" Column="51" />
+      <File FileName="Assets\Scripts\Debris.cs" Line="39" Column="69" />
+      <File FileName="Assets\Nations.cs" Line="10" Column="95" />
+      <File FileName="Assets\Scripts\BuildScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
