@@ -9,6 +9,8 @@ public class Shield : MonoBehaviour {
 	public int score = 0;
 
 	float moveSpeed = 7.5f;
+	float moveClampMin = -6.0f;
+	float moveClampMax = 6.0f;
 
 	void Start () {
 		
@@ -45,13 +47,16 @@ public class Shield : MonoBehaviour {
 			shieldPos = shieldPos + (Vector3.right * moveSpeed * Time.deltaTime);
 		}
 
-		shieldPos.x = Mathf.Clamp (shieldPos.x, -6.0f, 6.0f);
+		shieldPos.x = Mathf.Clamp (shieldPos.x, moveClampMin, moveClampMax);
 		this.transform.position = shieldPos;
 	}
 
 
 	void Shrink () {
-		transform.localScale -= new Vector3 (0.0f, 0.05f * Time.deltaTime, 0.0f);
+		float scaleDec = 0.05f * Time.deltaTime;
+		transform.localScale -= new Vector3 (0.0f, scaleDec, 0.0f);
+		moveClampMin -= scaleDec;
+		moveClampMax += scaleDec;
 		if (transform.localScale.y <= 0.0f) {
 /*TODO
  * For now, load "GameOver" scene when player Shield shrinks to nothing.
@@ -70,7 +75,10 @@ public class Shield : MonoBehaviour {
 
 
 	void CollectFunding () {
-		transform.localScale += new Vector3 (0.0f, 0.1f, 0.0f);
+		float scaleInc = 0.15f;
+		transform.localScale += new Vector3 (0.0f, scaleInc, 0.0f);
+		moveClampMin += scaleInc;
+		moveClampMax -= scaleInc;
 		print ("Funding Acquired! Shield size increased!");
 	}
 }
