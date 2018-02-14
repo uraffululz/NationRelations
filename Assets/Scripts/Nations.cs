@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class Nations : MonoBehaviour {
 
-	public GameObject[] nations;
-
-	//public Color[] colors = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
-	public List<Color> colors = new List<Color> {Color.blue, Color.green, Color.yellow, Color.red};
-	public Color colorSet;
-
+	Color natColor;
 
 	void Awake () {
-		nations = GameObject.FindGameObjectsWithTag ("Nation");
-		ChooseColor ();
+		
 	}
 
 
 	void Start () {
-		
+		natColor = gameObject.GetComponent<MeshRenderer> ().material.color;
 	}
 	
 
@@ -27,11 +21,12 @@ public class Nations : MonoBehaviour {
 	}
 
 
-	void ChooseColor () {
-		foreach (var nation in nations) {
-			colorSet = colors [Random.Range (0, colors.Count)];
-			nation.gameObject.GetComponent<MeshRenderer> ().material.color = colorSet;
-			colors.Remove (colorSet);
+	void OnCollisionEnter (Collision deb) {
+		Color debColor = deb.gameObject.GetComponent<MeshRenderer>().material.color;
+		if (debColor == natColor) {
+			print ("Nation attacked itself");
+		} else {
+			print (natColor + " nation attacked by " + debColor + " nation"); 
 		}
 	}
 }

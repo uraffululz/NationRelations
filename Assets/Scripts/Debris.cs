@@ -7,6 +7,7 @@ public class Debris : MonoBehaviour {
 	public GameObject explosion;
 
 	public Color[] debColors = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
+	public Color myColor;
 
 
 	void Awake () {
@@ -35,7 +36,7 @@ public class Debris : MonoBehaviour {
 
 
 	void ApplyColor () {
-		Color myColor = debColors [Random.Range (0, debColors.Length)];
+		myColor = debColors [Random.Range (0, debColors.Length)];
 		gameObject.GetComponent<MeshRenderer> ().material.color = myColor;
 	}
 }

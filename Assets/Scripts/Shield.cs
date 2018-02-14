@@ -53,7 +53,7 @@ public class Shield : MonoBehaviour {
 
 
 	void Shrink () {
-		float scaleDec = 0.05f * Time.deltaTime;
+		float scaleDec = 0.025f * Time.deltaTime;
 		transform.localScale -= new Vector3 (0.0f, scaleDec, 0.0f);
 		moveClampMin -= scaleDec;
 		moveClampMax += scaleDec;
@@ -63,14 +63,16 @@ public class Shield : MonoBehaviour {
  * Later on, maybe just load hidden canvas elements (Score text, along with score variables(Debris/WMDs caught, time lasted, etc.))
  * all while disabling visible objects in the (still active) Game scene in order to see score clearly.
  * Also include "Back to Start" button. */
-			lvlManager.LoadLevel ("GameOver");
+			//lvlManager.LoadLevel ("GameOver");
+			Time.timeScale = 0.0f;
+			print ("Game Over");
 		}
 	}
 
 
 	void CatchDebris () {
 		score++;
-		print ("Score increased");
+		print ("Score Increased: " + score);
 	}
 
 

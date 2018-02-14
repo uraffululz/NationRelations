@@ -22,7 +22,7 @@ public class PickupEmitter : MonoBehaviour {
 		debTimeStart = 1.0f;
 		debTimer = debTimeStart;
 
-		fundTimeStart = 3.0f;
+		fundTimeStart = 5.0f;
 		fundTimer = fundTimeStart;
 	}
 	
