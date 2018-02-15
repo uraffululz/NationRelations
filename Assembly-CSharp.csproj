@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Nations.cs" />
      <Compile Include="Assets\Scripts\PickupEmitter.cs" />
      <Compile Include="Assets\Scripts\Shield.cs" />
+     <Compile Include="Assets\Scripts\WMDScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

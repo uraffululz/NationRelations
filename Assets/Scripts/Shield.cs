@@ -53,7 +53,7 @@ public class Shield : MonoBehaviour {
 
 
 	void Shrink () {
-		float scaleDec = 0.025f * Time.deltaTime;
+		float scaleDec = 0.01f * Time.deltaTime;
 		transform.localScale -= new Vector3 (0.0f, scaleDec, 0.0f);
 		moveClampMin -= scaleDec;
 		moveClampMax += scaleDec;

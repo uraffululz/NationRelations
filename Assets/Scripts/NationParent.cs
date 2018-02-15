@@ -33,5 +33,6 @@ public class NationParent: MonoBehaviour {
 			nation.gameObject.GetComponent<MeshRenderer> ().material.color = colorSet;
 			colors.Remove (colorSet);
 		}
+		colorSet = Color.white;
 	}
 }
