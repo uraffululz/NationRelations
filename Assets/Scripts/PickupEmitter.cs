@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PickupEmitter : MonoBehaviour {
 
+	GameObject[] nationArray;
+	public List<GameObject> nationList;
 
 	public GameObject[] debrisFabs;
 	public GameObject debris;
@@ -17,6 +19,11 @@ public class PickupEmitter : MonoBehaviour {
 	public float fundTimeStart;
 	public float fundTimer;
 
+	void Awake () {
+		nationArray = GameObject.FindGameObjectsWithTag ("Nation");
+		nationList = new List<GameObject> {nationArray[0], nationArray[1],nationArray[2],nationArray[3]};
+	}
+		
 
 	void Start () {
 		debTimeStart = 1.0f;
@@ -56,6 +63,8 @@ and negative velocity to those in positive x-space*/
 		//print ("Velocity: " + debVel);
 
 		debrisClone = Instantiate (debris, debPos, Quaternion.identity, gameObject.transform);
+		float debScale = Random.Range (0.1f, 0.4f);
+		debrisClone.transform.localScale = new Vector3 (debScale, debScale, debScale);
 		Rigidbody debRB = debrisClone.GetComponent<Rigidbody> ();
 		//debRB.AddForce (debVel);
 		debRB.AddTorque (debRot);
@@ -64,8 +73,11 @@ and negative velocity to those in positive x-space*/
 
 	void SendFunding () {
 		funding = fundFabs [Random.Range (0, fundFabs.Length)];
-		Vector3 fundPos = new Vector3 (Random.Range (-6.0f, 6.0f), 1.0f, 0.0f);
-		//Vector3 fundRot = new Vector3 (Random.Range (0.0f, 10.0f), Random.Range (0.0f, 2.0f), Random.Range (0.0f, 10.0f));
+		Transform chooseFundingSpawnNation = nationList[Random.Range (0, nationList.Count)].transform;
+		float spotWithinNation = Random.Range (-1.1f, 1.1f);
+		Vector3 fundPos = new Vector3 (chooseFundingSpawnNation.position.x + spotWithinNation, 1.5f, 0.0f);
+		//Vector3 fundPos = new Vector3 (Random.Range (-6.0f, 6.0f), 1.0f, 0.0f);
+		//Vector3 fundRot = new Vector3 (0.0f, 0.0f, Random.Range (0.0f, 10.0f));
 		Vector3 fundVel = new Vector3 (0.0f, 80.0f, 0.0f);
 /*TODO Manipulate values for fundVel^ and fundTimer^^, along with Funding prefab Rigidbody component (mass, drag, etc.) in the Editor
  * Also, the Shrink rate on the Shield script is a factor, along with its moveSpeed.
@@ -75,5 +87,7 @@ and negative velocity to those in positive x-space*/
 		Rigidbody fundRB = fundClone.GetComponent<Rigidbody> ();
 		fundRB.AddForce (fundVel);
 		//fundRB.AddTorque (fundRot);
+
+		print ("Funding launched from " + chooseFundingSpawnNation.gameObject.name + ", plus " + spotWithinNation);
 	}
 }

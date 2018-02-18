@@ -25,6 +25,8 @@ public class Shield : MonoBehaviour {
 
 	void OnCollisionEnter (Collision snatch) {
 		if (snatch.gameObject.tag == "Debris") {
+			score = score + (int) (transform.localScale.y / snatch.gameObject.transform.localScale.y);
+				print ("Score Increased: " + score);
 			CatchDebris ();
 		}
 	}
@@ -35,7 +37,6 @@ public class Shield : MonoBehaviour {
 			Destroy (grab.gameObject);
 			CollectFunding ();
 		} else if (grab.gameObject.tag == "WMD") {
-			Destroy (grab.gameObject);
 			CatchWMD ();
 		}
 	}
@@ -56,7 +57,7 @@ public class Shield : MonoBehaviour {
 
 
 	void Shrink () {
-		float scaleDec = 0.02f * Time.deltaTime;
+		float scaleDec = 0.01f * Time.deltaTime; //Return to about 0.02f
 		transform.localScale -= new Vector3 (0.0f, scaleDec, 0.0f);
 		moveClampMin -= scaleDec;
 		moveClampMax += scaleDec;
@@ -74,8 +75,7 @@ public class Shield : MonoBehaviour {
 
 
 	void CatchDebris () {
-		score++;
-		print ("Score Increased: " + score);
+		
 	}
 
 

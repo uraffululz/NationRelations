@@ -276,6 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e43599b35a7e2b4c866a8d14d947ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Emitter: {fileID: 1280835382}
+  natHP: 100
   WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
 --- !u!1 &331859994
 GameObject:
@@ -445,6 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e43599b35a7e2b4c866a8d14d947ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Emitter: {fileID: 1280835382}
+  natHP: 100
   WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
 --- !u!1 &472537533
 GameObject:
@@ -1127,6 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3490d562571e67646943f8a9b4192075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nationList: []
   debrisFabs:
   - {fileID: 1115674228490710, guid: 955f34118bbc60f47ae13f627df7a55b, type: 2}
   - {fileID: 1191893983491888, guid: e5a20efa818898044abdf0dcdc620104, type: 2}
@@ -1307,6 +1312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e43599b35a7e2b4c866a8d14d947ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Emitter: {fileID: 1280835382}
+  natHP: 100
   WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
 --- !u!1 &1584470074
 GameObject:
@@ -1547,6 +1554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e43599b35a7e2b4c866a8d14d947ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Emitter: {fileID: 1280835382}
+  natHP: 100
   WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
 --- !u!1 &1896190561
 GameObject:

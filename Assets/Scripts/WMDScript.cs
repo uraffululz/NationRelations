@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WMDScript : MonoBehaviour {
 
-
+	public GameObject WMDExplosion;
 
 
 	void Start () {
@@ -14,5 +14,13 @@ public class WMDScript : MonoBehaviour {
 
 	void Update () {
 		
+	}
+
+
+	void OnTriggerEnter (Collider other) {
+		if (other.gameObject.tag == "Shield" || other.gameObject.tag == "Nation" || other.gameObject.tag == "WMD") {
+			WMDExplosion = Instantiate (WMDExplosion, transform.position, Quaternion.identity);
+			Destroy (gameObject);
+		}
 	}
 }
