@@ -8,6 +8,7 @@ TagManager:
   - Shield
   - Debris
   - Funding
+  - WMD
   layers:
   - Default
   - TransparentFX

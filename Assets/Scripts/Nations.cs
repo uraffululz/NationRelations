@@ -57,9 +57,9 @@ public class Nations : MonoBehaviour {
 								WMDClone = Instantiate (WMD, gameObject.transform.position + Vector3.up, Quaternion.identity);
 								Rigidbody WMDRB = WMDClone.GetComponent<Rigidbody> ();
 
-//Adding sideways velocidy to WMDClone to attempt to "aim" it at the offending nation
+//Adding sideways velocity to WMDClone to attempt to "aim" it at the offending nation
 								Vector3 WMDVel = new Vector3 
-									((nation.transform.position.x - gameObject.transform.position.x) * 2.0f, 50.0f, 0.0f);
+									((nation.transform.position.x - gameObject.transform.position.x) * 1.5f, 80.0f, 0.0f);
 								WMDRB.AddForce (WMDVel);
 /* TODO Instead, maybe just shoot the WMDClone straight up (slightly sideways), into an off-screen collider, where it is destroyed.
 A moment later, instantiate another WMD from a position above the "offending nation", falling down like the debris (maybe faster?)
@@ -69,6 +69,14 @@ A moment later, instantiate another WMD from a position above the "offending nat
 					}
 				}
 			}
+		}
+	}
+
+
+	void OnTriggerEnter (Collider grab) {
+		if (grab.gameObject.tag == "WMD") {
+			Destroy (grab.gameObject);
+			WMDStrike ();
 		}
 	}
 
@@ -91,5 +99,10 @@ A moment later, instantiate another WMD from a position above the "offending nat
 			}
 		}
 */
+	}
+
+
+	void WMDStrike () {
+		print ("WMD strike on nation");
 	}
 }
