@@ -6,11 +6,17 @@ public class Debris : MonoBehaviour {
 
 	public GameObject explosion;
 
-	public Color[] debColors = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
+	public GameObject[] nationArray;
+	public List<GameObject> nationList;
+	//List<Color> colorList;
+	//public Color[] debColors = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
 	public Color myColor;
 
 
 	void Awake () {
+		nationArray = GameObject.FindGameObjectsWithTag ("Nation");
+		nationList = new List<GameObject> {};
+		nationList.AddRange (nationArray);
 		ApplyColor ();
 	}
 
@@ -36,7 +42,7 @@ public class Debris : MonoBehaviour {
 
 
 	void ApplyColor () {
-		myColor = debColors [Random.Range (0, debColors.Length)];
-		gameObject.GetComponent<MeshRenderer> ().material.color = myColor;
+		int colorCount = Random.Range (0, nationList.Count);
+		gameObject.GetComponent<MeshRenderer>().material.color = nationList[colorCount].GetComponent<MeshRenderer> ().material.color;
 	}
 }

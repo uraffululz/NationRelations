@@ -12,9 +12,6 @@ public class Nations : MonoBehaviour {
 
 	public int natHP = 100;
 
-	//bool nationHostile = false;
-
-
 	public GameObject WMD;
 	GameObject WMDClone;
 
@@ -26,16 +23,12 @@ public class Nations : MonoBehaviour {
 
 	void Start () {
 		natColor = gameObject.GetComponent<MeshRenderer> ().material.color;
-
 		SetChildColors ();
 	}
 	
 
 	void Update () {
-/*		if (nationHostile) {
-			LaunchWMDs ();
-		}
-*/
+		
 	}
 
 
@@ -45,6 +38,7 @@ public class Nations : MonoBehaviour {
 			natHP = natHP - 5;
 			if (natHP <= 0) {
 				Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
+				deb.gameObject.GetComponent<Debris> ().nationList.Remove (gameObject);
 				Destroy (gameObject);
 			} else {
 				foreach (SpriteRenderer sprite in childSprites) {
@@ -52,25 +46,22 @@ public class Nations : MonoBehaviour {
 					Vector3 spriteShrink = new Vector3 (-0.5f / 3.25f, -0.5f / 0.5f, -0.5f / 1.0f);
 
 					if (debColor == sprite.color) {
-						//print (natColor + " nation attacked by " + debColor + " nation");
 						sprite.gameObject.transform.localScale += spriteShrink;
 
 						if (sprite.gameObject.transform.localScale.y <= 0.0f) {
-							//nationHostile = true;
-							//LaunchWMDs ();
 							foreach (var nation in gameObject.GetComponentInParent<NationParent>().nations) {
-								if (nation.GetComponent<MeshRenderer> ().material.color == debColor) {
-									print (gameObject.name + "launching WMD at " + nation);
+								if (nation != null) {
+									if (nation.GetComponent<MeshRenderer> ().material.color == debColor) {
+										print (gameObject.name + "launching WMD at " + nation);
 
-									WMDClone = Instantiate (WMD, gameObject.transform.position + Vector3.up, Quaternion.identity);
-									Rigidbody WMDRB = WMDClone.GetComponent<Rigidbody> ();
+										WMDClone = Instantiate (WMD, gameObject.transform.position + Vector3.up, Quaternion.identity);
+										WMDClone.GetComponent<MeshRenderer> ().material.color = natColor;
+										Rigidbody WMDRB = WMDClone.GetComponent<Rigidbody> ();
 
 //Adding sideways velocity to WMDClone to attempt to "aim" it at the offending nation
-									Vector3 WMDVel = new Vector3 ((nation.transform.position.x - gameObject.transform.position.x) * 1.5f, 80.0f, 0.0f);
-									WMDRB.AddForce (WMDVel);
-/* TODO Instead, maybe just shoot the WMDClone straight up (slightly sideways), into an off-screen collider, where it is destroyed.
-A moment later, instantiate another WMD from a position above the "offending nation", falling down like the debris (maybe faster?)
-*/
+										Vector3 WMDVel = new Vector3 ((nation.transform.position.x - gameObject.transform.position.x) * 1.5f, 80.0f, 0.0f);
+										WMDRB.AddForce (WMDVel);
+									}
 								}
 							}
 						}
@@ -83,7 +74,40 @@ A moment later, instantiate another WMD from a position above the "offending nat
 
 	void OnTriggerEnter (Collider grab) {
 		if (grab.gameObject.tag == "WMD") {
-			WMDStrike ();
+			Color grabColor = grab.gameObject.GetComponent<MeshRenderer>().material.color;
+			if (grabColor != natColor) {
+				natHP = natHP - 20;
+				if (natHP <= 0) {
+					Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
+					Destroy (gameObject);
+				} else {
+					foreach (SpriteRenderer sprite in childSprites) {
+						Vector3 spriteScale = sprite.gameObject.transform.localScale;
+						Vector3 spriteShrink = new Vector3 (-1.0f / 3.25f, -1.0f / 0.5f, -1.0f / 1.0f);
+						if (grabColor == sprite.color) {
+							sprite.gameObject.transform.localScale += spriteShrink;
+
+							if (sprite.gameObject.transform.localScale.y <= 0.0f) {
+								foreach (var nation in gameObject.GetComponentInParent<NationParent>().nations) {
+									if (nation != null) {
+										if (nation.GetComponent<MeshRenderer> ().material.color == grabColor) {
+											print (gameObject.name + "launching WMD at " + nation);
+
+											WMDClone = Instantiate (WMD, gameObject.transform.position + Vector3.up, Quaternion.identity);
+											WMDClone.GetComponent<MeshRenderer> ().material.color = natColor;
+											Rigidbody WMDRB = WMDClone.GetComponent<Rigidbody> ();
+
+											//Adding sideways velocity to WMDClone to attempt to "aim" it at the offending nation
+											Vector3 WMDVel = new Vector3 ((nation.transform.position.x - gameObject.transform.position.x) * 1.5f, 80.0f, 0.0f);
+											WMDRB.AddForce (WMDVel);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		} else if (grab.gameObject.tag == "Funding") {
 			Destroy (grab.gameObject);
 		}
@@ -112,11 +136,6 @@ A moment later, instantiate another WMD from a position above the "offending nat
 
 
 	void WMDStrike () {
-		natHP = natHP - 20; //Higher? Lower?
-		if (natHP <= 0) {
-			Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
-			Destroy (gameObject);
-		}
-		print ("WMD strike on nation");
+		
 	}
 }
