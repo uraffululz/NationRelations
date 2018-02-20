@@ -13,7 +13,12 @@ public class WMDScript : MonoBehaviour {
 	
 
 	void Update () {
-		
+/*TODO: Finish this (WMD rotation) after modeling the WMD. It will be easier to get a visual reference for rotation then*/
+		if (gameObject.GetComponent<Rigidbody> ().velocity.y < 0.0f) {
+			Vector3 lookRot = Vector3.RotateTowards (transform.position, 
+				transform.position + Vector3.left, 20 * Time.deltaTime, 0.0f);
+			transform.rotation = Quaternion.LookRotation (lookRot);
+		}
 	}
 
 

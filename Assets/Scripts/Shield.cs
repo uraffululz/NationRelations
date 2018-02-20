@@ -37,6 +37,9 @@ public class Shield : MonoBehaviour {
 			Destroy (grab.gameObject);
 			CollectFunding ();
 		} else if (grab.gameObject.tag == "WMD") {
+			score = score + 10;
+			print ("Score Increased: " + score);
+
 			CatchWMD ();
 		}
 	}
