@@ -16,7 +16,7 @@ public class PickupEmitter : MonoBehaviour {
 	public GameObject[] fundFabs;
 	public GameObject funding;
 	private GameObject fundClone;
-	public float fundTimeStart;
+	//public float fundTimeStart;
 	public float fundTimer;
 
 	void Awake () {
@@ -29,8 +29,7 @@ public class PickupEmitter : MonoBehaviour {
 		debTimeStart = 1.0f;
 		debTimer = debTimeStart;
 
-		fundTimeStart = 5.0f;
-		fundTimer = fundTimeStart;
+		fundTimer = 20.0f/nationList.Count;
 	}
 	
 
@@ -46,7 +45,7 @@ public class PickupEmitter : MonoBehaviour {
 			fundTimer -= Time.deltaTime;
 		} else {
 			SendFunding ();
-			fundTimer = fundTimeStart;
+			fundTimer = 20.0f/nationList.Count;
 		}
 	}
 
@@ -76,8 +75,7 @@ and negative velocity to those in positive x-space*/
 		Transform chooseFundingSpawnNation = nationList[Random.Range (0, nationList.Count)].transform;
 		float spotWithinNation = Random.Range (-1.1f, 1.1f);
 		Vector3 fundPos = new Vector3 (chooseFundingSpawnNation.position.x + spotWithinNation, 1.5f, 0.0f);
-		//Vector3 fundPos = new Vector3 (Random.Range (-6.0f, 6.0f), 1.0f, 0.0f);
-		//Vector3 fundRot = new Vector3 (0.0f, 0.0f, Random.Range (0.0f, 10.0f));
+		Vector3 fundRot = new Vector3 (0.0f, 150.0f, 0.0f);
 		Vector3 fundVel = new Vector3 (0.0f, 80.0f, 0.0f);
 /*TODO Manipulate values for fundVel^ and fundTimer^^, along with Funding prefab Rigidbody component (mass, drag, etc.) in the Editor
  * Also, the Shrink rate on the Shield script is a factor, along with its moveSpeed.
@@ -86,8 +84,6 @@ and negative velocity to those in positive x-space*/
 		fundClone = Instantiate (funding, fundPos, Quaternion.identity, gameObject.transform);
 		Rigidbody fundRB = fundClone.GetComponent<Rigidbody> ();
 		fundRB.AddForce (fundVel);
-		//fundRB.AddTorque (fundRot);
-
-		print ("Funding launched from " + chooseFundingSpawnNation.gameObject.name + ", plus " + spotWithinNation);
+		fundRB.AddTorque (fundRot);
 	}
 }
