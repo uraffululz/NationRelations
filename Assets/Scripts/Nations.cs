@@ -28,7 +28,12 @@ public class Nations : MonoBehaviour {
 	
 
 	void Update () {
-		
+		/*foreach (SpriteRenderer spriteRend in childSprites) {
+			if (spriteRend.gameObject.transform.lossyScale.x < 1.0f) {
+				Vector3 spriteGrow = new Vector3 (0.05f / 3.25f, 0.05f / 0.5f, 0.05f / 1.0f);
+				spriteRend.gameObject.transform.localScale += spriteGrow;
+			}
+		}*/
 	}
 
 

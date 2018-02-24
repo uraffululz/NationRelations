@@ -6,11 +6,32 @@ ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: CurveDollar
+    100006: FundingDollar
+    100008: Lamp
+    100010: WMD
     400000: //RootNode
+    400002: Camera
+    400004: CurveDollar
+    400006: FundingDollar
+    400008: Lamp
+    400010: WMD
     2300000: //RootNode
+    2300002: CurveDollar
+    2300004: FundingDollar
+    2300006: WMD
     3300000: //RootNode
+    3300002: CurveDollar
+    3300004: FundingDollar
+    3300006: WMD
     4300000: FundingDollar
+    4300002: WMD
+    4300004: CurveDollar
     6400000: //RootNode
+    6400002: CurveDollar
+    6400004: FundingDollar
+    6400006: WMD
   materials:
     importMaterials: 1
     materialName: 0

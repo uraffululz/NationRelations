@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
   natHP: 100
-  WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
+  WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
 --- !u!1 &331859994
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
   natHP: 100
-  WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
+  WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
 --- !u!1 &472537533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1142,6 @@ MonoBehaviour:
   fundFabs:
   - {fileID: 1403804646653874, guid: 8b17102d37952ff478bb5fb8deb5919b, type: 2}
   funding: {fileID: 0}
-  fundTimeStart: 0
   fundTimer: 0
 --- !u!1 &1348757322
 GameObject:
@@ -1314,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
   natHP: 100
-  WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
+  WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
 --- !u!1 &1584470074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,7 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
   natHP: 100
-  WMD: {fileID: 1164368003364000, guid: 77ffd13598bf18b42aaa2eb7e4d0d050, type: 2}
+  WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
 --- !u!1 &1896190561
 GameObject:
   m_ObjectHideFlags: 0
