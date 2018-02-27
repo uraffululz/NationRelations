@@ -24,7 +24,7 @@ public class WMDScript : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.tag == "Shield" || other.gameObject.tag == "Nation"
-			|| other.gameObject.tag == "WMD" /*|| other.gameObject.tag == "Debris"*/) {
+			|| other.gameObject.tag == "WMD" || other.gameObject.tag == "Debris") {
 			WMDExplosion = Instantiate (WMDExplosion, transform.position, Quaternion.identity);
 			Destroy (gameObject);
 		}

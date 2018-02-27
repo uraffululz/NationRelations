@@ -25,8 +25,8 @@ public class Shield : MonoBehaviour {
 
 	void OnCollisionEnter (Collision snatch) {
 		if (snatch.gameObject.tag == "Debris") {
-			score = score + (int) (transform.localScale.y / snatch.gameObject.transform.localScale.y);
-				print ("Score Increased: " + score);
+			score = score + (int) ((transform.localScale.y / snatch.gameObject.transform.localScale.y) / 2);
+				print ("Score: " + score);
 			CatchDebris ();
 		}
 	}

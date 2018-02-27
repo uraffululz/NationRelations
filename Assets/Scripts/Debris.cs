@@ -32,10 +32,6 @@ public class Debris : MonoBehaviour {
 
 
 	void OnCollisionEnter (Collision other) {
-		if (other.gameObject.CompareTag("Nation")) {
-			
-		}
-
 		explosion = Instantiate (explosion, transform.position, Quaternion.identity);
 		Destroy (gameObject);
 	}

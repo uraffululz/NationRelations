@@ -38,7 +38,7 @@ public class PickupEmitter : MonoBehaviour {
 			debTimer = debTimer - Time.deltaTime;
 		} else {
 			FireDebris ();
-			debTimer = debTimeStart;
+			debTimer = Random.Range (1.0f, 2.0f);
 		}
 
 		if (fundTimer > 0.0f) {
