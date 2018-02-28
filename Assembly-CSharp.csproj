@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Nation_Silhouette.cs" />
      <Compile Include="Assets\Scripts\BuildScript.cs" />
      <Compile Include="Assets\Scripts\Debris.cs" />
      <Compile Include="Assets\Scripts\LevelManager.cs" />

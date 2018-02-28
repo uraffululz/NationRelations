@@ -9,6 +9,7 @@ public class Nations : MonoBehaviour {
 	Color natColor;
 	List<Color> natChildcolors = new List<Color> {Color.blue, Color.green, Color.yellow, Color.red};
 	SpriteRenderer[] childSprites;
+	MeshRenderer[] childRenderers;
 
 	public int natHP = 100;
 
@@ -126,6 +127,11 @@ public class Nations : MonoBehaviour {
 		foreach (SpriteRenderer childSprite in childSprites) {
 			childSprite.color = natChildcolors [0];
 			natChildcolors.RemoveAt (0);
+		}
+
+		childRenderers = gameObject.GetComponentsInChildren<MeshRenderer> ();
+		foreach (MeshRenderer renderer in childRenderers) {
+			renderer.material.color = natColor;
 		}
 	}
 
