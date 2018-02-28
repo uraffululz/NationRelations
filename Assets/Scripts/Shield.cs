@@ -65,14 +65,7 @@ public class Shield : MonoBehaviour {
 		moveClampMin -= scaleDec;
 		moveClampMax += scaleDec;
 		if (transform.localScale.y <= 0.0f) {
-/*TODO
- * For now, print "Game Over" when player Shield shrinks to nothing.
- * Later on, maybe just load hidden canvas elements (Score text, along with score variables(Debris/WMDs caught, time lasted, etc.))
- * all while disabling visible objects in the (still active) Game scene in order to see score clearly.
- * Also include "Back to Start" button. */
-			//lvlManager.LoadLevel ("GameOver");
-			Time.timeScale = 0.0f;
-			print ("Game Over");
+			GameOver ();
 		}
 	}
 
@@ -93,5 +86,17 @@ public class Shield : MonoBehaviour {
 		moveClampMin += scaleInc;
 		moveClampMax -= scaleInc;
 		print ("Funding Acquired! Shield size increased!");
+	}
+
+
+	public void GameOver () {
+		/*TODO
+ * For now, print "Game Over" when player Shield shrinks to nothing.
+ * Later on, maybe just load hidden canvas elements (Score text, along with score variables(Debris/WMDs caught, time lasted, etc.))
+ * all while disabling visible objects in the (still active) Game scene in order to see score clearly.
+ * Also include "Back to Start" button. */
+		//lvlManager.LoadLevel ("GameOver");
+		Time.timeScale = 0.0f;
+		print ("Game Over");
 	}
 }

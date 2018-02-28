@@ -1,14 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WMDScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Nations.cs">
     <Files>
       <File FileName="Assets\Scripts\PickupEmitter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Shield.cs" Line="28" Column="98" />
+      <File FileName="Assets\Scripts\Shield.cs" Line="92" Column="9" />
       <File FileName="Assets\Scripts\NationParent.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Nations.cs" Line="33" Column="3" />
-      <File FileName="Assets\Scripts\Nation_Silhouette.cs" Line="21" Column="67" />
+      <File FileName="Assets\Scripts\Nations.cs" Line="188" Column="5" />
+      <File FileName="Assets\Scripts\Nation_Silhouette.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Debris.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\WMDScript.cs" Line="24" Column="1" />
+      <File FileName="Assets\Scripts\WMDScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

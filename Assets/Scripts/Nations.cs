@@ -11,6 +11,9 @@ public class Nations : MonoBehaviour {
 	SpriteRenderer[] childSprites;
 	MeshRenderer[] childRenderers;
 
+	public GameObject[] natArray;
+	public List<Color> natColorList = new List<Color> {};
+
 	public int natHP = 100;
 	public Vector3 natScale;
 
@@ -26,6 +29,8 @@ public class Nations : MonoBehaviour {
 	void Start () {
 		natColor = gameObject.GetComponent<MeshRenderer> ().material.color;
 		SetChildColors ();
+
+		natArray = gameObject.GetComponentInParent<NationParent> ().nations;
 	}
 	
 
@@ -37,11 +42,9 @@ public class Nations : MonoBehaviour {
 	void OnCollisionEnter (Collision deb) {
 		Color debColor = deb.gameObject.GetComponent<MeshRenderer>().material.color;
 		if (debColor != natColor) {
-			natHP = natHP - 5;
+			natHP = natHP - 10;
 			if (natHP <= 0) {
-				Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
-				deb.gameObject.GetComponent<Debris> ().nationList.Remove (gameObject);
-				Destroy (gameObject);
+				NationRevivalCol (deb);
 			} else {
 				natScale = new Vector3 (0.3f, (natHP/100.0f) * 2, 1.0f);
 				foreach (SpriteRenderer sprite in childSprites) {
@@ -81,8 +84,7 @@ public class Nations : MonoBehaviour {
 			if (grabColor != natColor) {
 				natHP = natHP - 20;
 				if (natHP <= 0) {
-					Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
-					Destroy (gameObject);
+					NationRevivalTrig (grab);
 				} else {
 					natScale = new Vector3 (0.3f, (natHP/100.0f) * 2, 1.0f);
 					foreach (SpriteRenderer sprite in childSprites) {
@@ -146,5 +148,71 @@ public class Nations : MonoBehaviour {
 
 	void WMDStrike () {
 		
+	}
+
+
+	void NationRevivalCol (Collision debCol) {
+		natHP = 100;
+		natColor = debCol.gameObject.GetComponent<MeshRenderer> ().material.color;
+		gameObject.GetComponent<MeshRenderer> ().material.color = natColor;
+
+		foreach (GameObject nat in natArray) {
+			//Color natShade = gameObject.GetComponent<MeshRenderer> ().material.color;
+			natColorList.Add (nat.GetComponent<MeshRenderer>().material.color);
+		}
+		if (natColorList.TrueForAll (LastNationStanding)) {
+			GameObject.FindGameObjectWithTag ("Shield").GetComponent<Shield> ().GameOver ();
+		};
+
+		natColorList.Clear ();
+			
+		//natMatColorArray = new Color[] {};
+		/*Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
+		debCol.gameObject.GetComponent<Debris> ().nationList.Remove (gameObject);
+		Destroy (gameObject);
+*/
+	}
+
+
+	void NationRevivalTrig (Collider trigCol) {
+		natHP = 100;
+		natColor = trigCol.gameObject.GetComponent<MeshRenderer> ().material.color;
+		gameObject.GetComponent<MeshRenderer> ().material.color = natColor;
+
+		foreach (GameObject nat in natArray) {
+			//Color natShade = gameObject.GetComponent<MeshRenderer> ().material.color;
+			natColorList.Add (nat.GetComponent<MeshRenderer>().material.color);
+		}
+		if (natColorList.TrueForAll (LastNationStanding)) {
+			GameObject.FindGameObjectWithTag ("Shield").GetComponent<Shield> ().GameOver ();
+		};
+
+		natColorList.Clear ();
+
+		//Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
+		//Destroy (gameObject);
+	}
+
+
+	bool LastNationStanding (Color matColor) {
+		int colorCount = 0;
+
+		foreach (Color color in natColorList) {
+			if (color == natColor) {
+				colorCount++;
+			} else {
+				colorCount--;
+			}
+		}
+		if (colorCount == natColorList.Count) {
+			return true;
+		} else {
+			return false;
+		}
+		/*if (gameObject.GetComponent<MeshRenderer> ().material.color == natColor) {
+			return true;
+		} else {
+			return false;
+		}*/
 	}
 }
