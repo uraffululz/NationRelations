@@ -6,9 +6,10 @@ public class Nation_Silhouette : MonoBehaviour {
 
 	Color natColor;
 
+	Vector3 natScale;
 
 	void Awake () {
-		//natColor = gameObject.GetComponentInParent<Nations> ().natColor;
+		natScale = gameObject.GetComponentInParent<Nations> ().natScale;
 		//natColor = gameObject.GetComponentInParent<MeshRenderer> ().material.color;
 
 		//print (transform.parent.gameObject.name + ": " + gameObject.GetComponentInParent<MeshRenderer> ().material.color);
@@ -17,7 +18,9 @@ public class Nation_Silhouette : MonoBehaviour {
 
 
 	void Update () {
-		//gameObject.GetComponent<MeshRenderer> ().material.color = natColor;
-
+		natScale = gameObject.GetComponentInParent<Nations> ().natScale;
+		if (transform.localScale != natScale) {
+			transform.localScale = natScale;
+		}
 	}
 }

@@ -12,13 +12,14 @@ public class Nations : MonoBehaviour {
 	MeshRenderer[] childRenderers;
 
 	public int natHP = 100;
+	public Vector3 natScale;
 
 	public GameObject WMD;
 	GameObject WMDClone;
 
 
 	void Awake () {
-		
+		natScale = new Vector3 (0.3f, 2.0f, 1.0f);
 	}
 
 
@@ -29,12 +30,7 @@ public class Nations : MonoBehaviour {
 	
 
 	void Update () {
-		/*foreach (SpriteRenderer spriteRend in childSprites) {
-			if (spriteRend.gameObject.transform.lossyScale.x < 1.0f) {
-				Vector3 spriteGrow = new Vector3 (0.05f / 3.25f, 0.05f / 0.5f, 0.05f / 1.0f);
-				spriteRend.gameObject.transform.localScale += spriteGrow;
-			}
-		}*/
+		
 	}
 
 
@@ -47,6 +43,7 @@ public class Nations : MonoBehaviour {
 				deb.gameObject.GetComponent<Debris> ().nationList.Remove (gameObject);
 				Destroy (gameObject);
 			} else {
+				natScale = new Vector3 (0.3f, (natHP/100.0f) * 2, 1.0f);
 				foreach (SpriteRenderer sprite in childSprites) {
 					Vector3 spriteScale = sprite.gameObject.transform.localScale;
 					Vector3 spriteShrink = new Vector3 (-0.5f / 3.25f, -0.5f / 0.5f, -0.5f / 1.0f);
@@ -87,6 +84,7 @@ public class Nations : MonoBehaviour {
 					Emitter.GetComponent<PickupEmitter> ().nationList.Remove (gameObject);
 					Destroy (gameObject);
 				} else {
+					natScale = new Vector3 (0.3f, (natHP/100.0f) * 2, 1.0f);
 					foreach (SpriteRenderer sprite in childSprites) {
 						Vector3 spriteScale = sprite.gameObject.transform.localScale;
 						Vector3 spriteShrink = new Vector3 (-1.0f / 3.25f, -1.0f / 0.5f, -1.0f / 1.0f);
