@@ -8,8 +8,14 @@ public class Nation_Silhouette : MonoBehaviour {
 
 	Vector3 natScale;
 
+	public Mesh[] chooseMesh;
+	Mesh chosenMesh;
+
 	void Awake () {
 		natScale = gameObject.GetComponentInParent<Nations> ().natScale;
+		chosenMesh = chooseMesh [Random.Range (0, chooseMesh.Length)];
+		gameObject.GetComponent<MeshFilter> ().mesh = chosenMesh;
+
 		//natColor = gameObject.GetComponentInParent<MeshRenderer> ().material.color;
 
 		//print (transform.parent.gameObject.name + ": " + gameObject.GetComponentInParent<MeshRenderer> ().material.color);

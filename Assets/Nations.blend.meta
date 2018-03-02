@@ -6,11 +6,34 @@ ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: NationSilhouette
+    100004: NationSilhouette2
+    100006: NationSilhouette3
+    100008: NationSilhouetteBase
     400000: //RootNode
+    400002: NationSilhouette
+    400004: NationSilhouette2
+    400006: NationSilhouette3
+    400008: NationSilhouetteBase
     2300000: //RootNode
+    2300002: NationSilhouette
+    2300004: NationSilhouette2
+    2300006: NationSilhouette3
+    2300008: NationSilhouetteBase
     3300000: //RootNode
+    3300002: NationSilhouette
+    3300004: NationSilhouette2
+    3300006: NationSilhouette3
+    3300008: NationSilhouetteBase
     4300000: NationSilhouette
+    4300002: NationSilhouette3
+    4300004: NationSilhouette2
+    4300006: NationSilhouetteBase
     6400000: //RootNode
+    6400002: NationSilhouette
+    6400004: NationSilhouette2
+    6400006: NationSilhouette3
+    6400008: NationSilhouetteBase
     7400000: Default Take
     9500000: //RootNode
   materials:
