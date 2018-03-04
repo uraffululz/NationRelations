@@ -16,7 +16,13 @@ public class Debris : MonoBehaviour {
 	void Awake () {
 		nationArray = GameObject.FindGameObjectsWithTag ("Nation");
 		nationList = new List<GameObject> {};
-		nationList.AddRange (nationArray);
+
+		foreach (var nation in nationArray) {
+			if (nation.gameObject.GetComponent<MeshRenderer>().material.color != Color.black) {
+				nationList.Add (nation);
+			}
+		}
+		//nationList.AddRange (nationArray);
 		ApplyColor ();
 	}
 
@@ -40,5 +46,6 @@ public class Debris : MonoBehaviour {
 	void ApplyColor () {
 		int colorCount = Random.Range (0, nationList.Count);
 		gameObject.GetComponent<MeshRenderer>().material.color = nationList[colorCount].GetComponent<MeshRenderer> ().material.color;
+
 	}
 }
