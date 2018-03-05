@@ -278,6 +278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
+  natArray: []
+  natColorList: []
   natHP: 100
   natScale: {x: 0, y: 0, z: 0}
   WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
@@ -451,6 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
+  natArray: []
+  natColorList: []
   natHP: 100
   natScale: {x: 0, y: 0, z: 0}
   WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
@@ -1273,9 +1277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nationList: []
   debrisFabs:
-  - {fileID: 1115674228490710, guid: 955f34118bbc60f47ae13f627df7a55b, type: 2}
-  - {fileID: 1191893983491888, guid: e5a20efa818898044abdf0dcdc620104, type: 2}
-  - {fileID: 1329500531445428, guid: 80de1da0bc9a7964cab3fc7e42f3d8ca, type: 2}
+  - {fileID: 1009058575592756, guid: 39ce28b26e77bf649920b6ccbc09a8cf, type: 2}
+  - {fileID: 1848914194412090, guid: a2b43ed9ffa6a4a4b9232d67dfadd7f7, type: 2}
+  - {fileID: 1521983548909456, guid: f21440ada1d40d44ea20f6da100d6278, type: 2}
   debris: {fileID: 0}
   debTimeStart: 0
   debTimer: 0
@@ -1458,6 +1462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
+  natArray: []
+  natColorList: []
   natHP: 100
   natScale: {x: 0, y: 0, z: 0}
   WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}
@@ -1749,6 +1755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Emitter: {fileID: 1280835382}
+  natArray: []
+  natColorList: []
   natHP: 100
   natScale: {x: 0, y: 0, z: 0}
   WMD: {fileID: 1537290272928874, guid: 0a2d91c5f5085784684448d4cddc713f, type: 2}

@@ -195,6 +195,8 @@ public class Nations : MonoBehaviour {
 			}
 		}
 
+		meterCount = 0;
+
 		foreach (GameObject nat in natArray) {
 			//Color natShade = gameObject.GetComponent<MeshRenderer> ().material.color;
 			natColorList.Add (nat.GetComponent<MeshRenderer>().material.color);

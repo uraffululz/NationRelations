@@ -62,7 +62,7 @@ and negative velocity to those in positive x-space*/
 		//print ("Velocity: " + debVel);
 
 		debrisClone = Instantiate (debris, debPos, Quaternion.identity, gameObject.transform);
-		float debScale = Random.Range (0.1f, 0.4f);
+		float debScale = Random.Range (0.3f, 0.6f);
 		debrisClone.transform.localScale = new Vector3 (debScale, debScale, debScale);
 		Rigidbody debRB = debrisClone.GetComponent<Rigidbody> ();
 		//debRB.AddForce (debVel);
